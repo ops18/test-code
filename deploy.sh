@@ -27,9 +27,9 @@ if [[ ! -z "$from" ]] && [[ ! -z "$to" ]]; then
   done < <(git diff --name-status $from $to)
 
   # cluster spin up functions are called on the changed files
-  manage_kong_admin ${components[@]}
-  manage_kong_manager ${components[@]}
-  manage_kong_portal ${components[@]}
+  manage_kong_admin 
+  manage_kong_manager 
+  manage_kong_portal 
   #manage_apic ${components[@]}
 else
   echo "Warning: Nothing to apply!!"
