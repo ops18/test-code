@@ -32,23 +32,21 @@ if [[ ! -z "$from" ]] && [[ ! -z "$to" ]]; then
   manage_kong_portal 
   #manage_apic ${components[@]}
 else
-  echo "Warning: Nothing to apply!!"
+  echo "Warning: Nothing to apply!! and code is not working" 
 fi
 
-manage_kong_admin()
+manage_kong_admin ()
 {
-cd ../admin/ && touch a
 echo "run the admin-api code"
+cd ../admin/ && touch a
 }
-manage_kong_manager()
+manage_kong_manager ()
 {
 echo "run a  kong-manager-code"
-
 cd ../manager/ && touch a
 }
-manage_kong_portal()
+manage_kong_portal ()
 {
 echo "run a kong portal code"
-
 cd ../portal/ && touch a
 }
