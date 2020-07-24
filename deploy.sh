@@ -1,3 +1,21 @@
+#/bin/bash
+
+admin()
+{
+echo "run the admin-api code"
+cd kong-admin && touch a && cd ../ 
+}
+manager()
+{
+echo "run a  kong-manager-code"
+cd kong-manager && touch a && cd ../
+}
+portal()
+{
+echo "run a kong portal code"
+cd kong-portal && touch a && cd ../
+}
+
 # declaring an array, components []
 declare -a components=()
 
@@ -27,29 +45,14 @@ if [[ ! -z "$from" ]] && [[ ! -z "$to" ]]; then
   done < <(git diff --name-status $from $to)
 
   # cluster spin up functions are called on the changed files
-  admin ${components[@]}
+  admin #${components[@]}
 
-  manager ${components[@]}
+  manager #${components[@]}
 
-  portal ${components[@]}
+  portal #${components[@]}
 
   #manage_apic ${components[@]}
 else
   echo "Warning: Nothing to apply!! and code is not working" 
 fi
 
-admin()
-{
-echo "run the admin-api code"
-cd ../admin/ && touch a
-}
-manager()
-{
-echo "run a  kong-manager-code"
-cd ../manager/ && touch a
-}
-portal()
-{
-echo "run a kong portal code"
-cd ../portal/ && touch a
-}
