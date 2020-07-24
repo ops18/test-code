@@ -27,9 +27,12 @@ if [[ ! -z "$from" ]] && [[ ! -z "$to" ]]; then
   done < <(git diff --name-status $from $to)
 
   # cluster spin up functions are called on the changed files
-  admin 
-  manager 
-  portal 
+  admin ${components[@]}
+
+  manager ${components[@]}
+
+  portal ${components[@]}
+
   #manage_apic ${components[@]}
 else
   echo "Warning: Nothing to apply!! and code is not working" 
