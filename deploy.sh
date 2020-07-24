@@ -27,25 +27,25 @@ if [[ ! -z "$from" ]] && [[ ! -z "$to" ]]; then
   done < <(git diff --name-status $from $to)
 
   # cluster spin up functions are called on the changed files
-  manage_kong_admin 
-  manage_kong_manager 
-  manage_kong_portal 
+  admin 
+  manager 
+  portal 
   #manage_apic ${components[@]}
 else
   echo "Warning: Nothing to apply!! and code is not working" 
 fi
 
-manage_kong_admin ()
+admin()
 {
 echo "run the admin-api code"
 cd ../admin/ && touch a
 }
-manage_kong_manager ()
+manager()
 {
 echo "run a  kong-manager-code"
 cd ../manager/ && touch a
 }
-manage_kong_portal ()
+portal()
 {
 echo "run a kong portal code"
 cd ../portal/ && touch a
